@@ -1,6 +1,6 @@
 body {
 		color: #fff;
-		background: #74BDCB;
+		background: #111c1f;
 		font-family: 'Roboto', sans-serif;
 	}
 	.form-control, .form-control:focus, .input-group-addon {
@@ -23,7 +23,7 @@ body {
         padding: 30px;
     }
 	.signup-form h2 {
-		color: #333;
+		color: #000153;
 		font-weight: bold;
         margin-top: 0;
     }
@@ -68,7 +68,7 @@ body {
 		text-decoration: none;
 	}
 	.signup-form form a {
-		color: #19aa8d;
+		color: #04221c;
 		text-decoration: none;
 	}	
 	.signup-form form a:hover {

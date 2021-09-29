@@ -1,17 +1,9 @@
 <?php
-	$conn=mysqli_connect("localhost","root","","meriton_suites_database");
-
-		// Check connection
-		if (mysqli_connect_errno())
-		  {
-		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-		  }
-		  else
-		  {
-		  	//echo "Connection on";
-		  } 
-
-
-
+$db_name = "society";
+$mysql_username = "root";
+//$mysql_username = "remcon";
+//$mysql_password = "&cx=Q******";
+$mysql_password = "";
+$server_name = "localhost";
+$conn = mysqli_connect($server_name, $mysql_username, $mysql_password, $db_name);
 ?>
-

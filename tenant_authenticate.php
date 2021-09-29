@@ -1,47 +1,35 @@
 <?php
-session_start();
-require_once('db_config.php');
+ require_once('db_config.php');
+ session_start();
+   
+if ( !isset($_POST['tennants_name'], $_POST['password']) ) 
+   {	
+	  exit('Please fill both the username and password fields!');
+   }
 
-if ( !isset($_POST['username'], $_POST['password']) ) 
-{	
-	exit('Please fill both the username and password fields!');
-}//chicking if the username or password are empty
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
+   $name = mysqli_real_escape_string($conn,$_POST['tennants_name']);
+   $pass = mysqli_real_escape_string($conn,$_POST['password']); 
 
-if ($stmt = $conn->prepare('SELECT tennants_id, tennant_password FROM tennants WHERE tennants_name = ?')) {
-	
-	$stmt->bind_param('s', $_POST['username']);
-	$stmt->execute();	
-	$stmt->store_result();
-if ($stmt->num_rows > 0) {
-	$stmt->bind_result($tennants_id, $tennant_password);
-	$stmt->fetch();
-	
-	if (password_verify($_POST['password'], $tennant_password)) {
-		
-		session_regenerate_id();
-		$_SESSION['loggedin'] = TRUE;
-        $username = $_POST['username'];
-        $sql = "SELECT * FROM tennants WHERE tennants_name= '$username'";
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-            $_SESSION['tennants_name'] = $row['tennants_name'];   
-            $_SESSION['society_id']= $row['society_id'];
-            $_SESSION['tennants_id'] = $row['tennants_id'];
-            }
-        }
-		header('Location: tenant_homepage.php');
-	} else {
-		// Incorrect password
-		echo 'Incorrect username and/or password!';
-	}
-} else {
-	// Incorrect username
-	echo 'Incorrect username and/or password!';
-}
-
-	$stmt->close();
+   $sql = "SELECT * FROM tennants WHERE tennants_name = '$name' and tennant_password = '$pass'";
+   $result = mysqli_query($conn,$sql);
+   $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+   $id = $row['tennants_id'];
+   $tennant_name = $row['tennants_name'];
+   $has_row = mysqli_num_rows($result);
+   echo $id;
+   if($has_row == 1)
+   {
+   	$_SESSION['log_in_tenant'] = $id;
+   	$_SESSION['Log_in_tenant_name'] = $tennant_name;
+   	
+   	header("location: tenant_homepage.php");
+   }
+   else
+   {
+   	echo("Please Enter Correct Details");
+   }
 }
 ?>
 

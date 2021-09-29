@@ -33,21 +33,21 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
-      <h1 class="logo me-auto"><a href="index.html">Meriton Suites<span>.</span></a></h1>
+      <h1 class="logo me-auto"><a href="homepage.php">Meriton Suites<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto" href="homepage.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="homepage.php">Home</a></li>
           <li><a class="active" href="expenses.php">Expenses</a></li>
           <li><a href="events.php">Events</a></li>
           <li><a href="visitors.php">Visitors</a></li>
 		  <li><a href="owners.php">Tennants</a></li>
           <li class="dropdown"><a href="society.php"><span>Society </span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="towers.html">Towers</a></li>
-              <li><a href="flats.html">Flats</a></li>
+              <li><a href="towers.php">Towers</a></li>
+              <li><a href="flats.php">Flats</a></li>
             </ul>
           </li>
         </ul>
